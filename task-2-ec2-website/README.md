@@ -19,12 +19,12 @@ I deployed a free-tier eligible t2.micro EC2 instance in a public subnet with au
    - Proper file permissions (755) set for web content
    - Minimal attack surface with only required ports open
 
-## Screenshots (To be added after deployment)
+## Screenshots
 
-- EC2 Instance Details
-- Security Group Configuration
-- Website Accessible in Browser (http://<public-ip>)
-- Nginx Status
+- EC2 Instance: ![EC2](./task-2-ec2-instance-screenshot.png)
+- Security Group: ![Security Group](./task-2-security-group-screenshot.png)
+- Website in Browser: ![Website](./task-2-website-screenshot.png)
+
 
 ## Terraform Code
 

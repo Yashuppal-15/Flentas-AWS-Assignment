@@ -107,8 +107,8 @@ resource "aws_security_group" "yash_uppal_sg_task2" {
 
 # EC2 Instance with Nginx and Resume
 resource "aws_instance" "yash_uppal_ec2_task2" {
-  ami                    = "ami-0c55b159cbfafe1f0"  # Ubuntu 20.04 LTS in ap-south-1
-  instance_type          = "t2.micro"
+  ami                    = "ami-02b8269d5e85954ef"  # Ubuntu 20.04 LTS in ap-south-1
+  instance_type          = "t3.micro"
   subnet_id              = aws_subnet.yash_uppal_public_subnet_task2.id
   vpc_security_group_ids = [aws_security_group.yash_uppal_sg_task2.id]
 

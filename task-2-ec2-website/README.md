@@ -21,9 +21,9 @@ I deployed a free-tier eligible t2.micro EC2 instance in a public subnet with au
 
 ## Screenshots
 
-- EC2 Instance: ![EC2](./task-2-ec2-instance-screenshot.png)
-- Security Group: ![Security Group](./task-2-security-group-screenshot.png)
-- Website in Browser: ![Website](./task-2-website-screenshot.png)
+- EC2 Instance: ![EC2](./task-2-ec2-instance-screenshot.png.png)
+- Security Group: ![Security Group](./task-2-security-group-screenshot.png.png)
+- Website in Browser: ![Website](./task-2-website-screenshot.png.png)
 
 
 ## Terraform Code

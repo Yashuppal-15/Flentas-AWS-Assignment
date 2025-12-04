@@ -26,7 +26,13 @@ I designed a highly available VPC architecture following AWS best practices with
 
 ## Infrastructure Screenshots
 
-[Screenshots to be added after AWS deployment]
+- VPC: ![VPC](./task-1-vpc-vpc-screenshot.png.png)
+- Subnets: ![Subnets](./task-1-vpcsubnets-screenshot.png.png)
+- Route Tables (Public): ![Public RT](./task-1-vpcroute-tables-public-screenshot.png.png)
+- Route Tables (Private): ![Private RT](./task-1-vpcroute-tables-private-screenshot.png.png)
+- Internet Gateway: ![IGW](./task-1-vpc-igw-screenshot.png.png)
+- NAT Gateway: ![NAT](./task-1-vpc-nat-screenshot.png.png)
+
 
 ## Terraform Code
 

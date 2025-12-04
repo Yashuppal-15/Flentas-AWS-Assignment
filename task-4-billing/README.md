@@ -43,12 +43,11 @@ Cost monitoring is critical for beginners using AWS Free Tier because:
 - Subscribe with your email to receive instant alerts
 - Respond quickly to unusual activity
 
-## Screenshots (To be added after deployment)
+## Screenshots
 
-- CloudWatch Billing Alarm configuration
-- Free Tier Usage Alerts page
-- SNS Topic subscription confirmation
-- Email alert example
+- Cost Budget (₹100) with email alerts: ![Budget](./task-4-billing-budget-screenshot.png.png)
+
+
 
 ## Best Practices for Free Tier
 

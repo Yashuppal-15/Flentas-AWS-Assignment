@@ -30,13 +30,10 @@ The architecture implements a highly available, scalable design following AWS be
 5. **Nginx on EC2** → Serves resume website
 6. **Response** → Returns to user through ALB
 
-## Screenshots (To be added after deployment)
+## Screenshots
 
-- ALB Configuration details
-- Target Group with health check settings
-- Auto Scaling Group configuration
-- EC2 Instances launched by ASG in private subnets
-- ALB DNS working in browser
+- Load Balancer console: ![ALB Console](./task-3-alb-screen.png.png)
+
 
 ## Terraform Code
 

@@ -1,0 +1,104 @@
+AWS SCALABLE ARCHITECTURE FOR 10,000 CONCURRENT USERS
+
+TIER 1: GLOBAL EDGE & SECURITY
+├── Route 53 (DNS with failover)
+├── CloudFront CDN (Global distribution)
+├── AWS Shield Standard (DDoS protection)
+└── AWS WAF (Web Application Firewall)
+
+TIER 2: LOAD BALANCING
+├── Application Load Balancer (ALB)
+│   ├── Port 80 & 443
+│   └── Multi-AZ (ap-south-1a, 1b, 1c)
+└── Target Groups (Health checks every 30s)
+
+TIER 3: COMPUTE LAYER (AUTO SCALING)
+├── Auto Scaling Group
+│   ├── Min: 2 instances
+│   ├── Max: 20 instances
+│   ├── Desired: 5 instances
+│   └── Across 3 AZs
+├── EC2 Instances (t3.medium/large)
+│   ├── Application servers
+│   ├── Nginx/Node.js
+│   └── CloudWatch agent
+└── Launch Template
+    ├── Ubuntu 20.04 LTS
+    ├── Auto-scaling policies
+    └── Security hardening
+
+TIER 4: NETWORKING
+├── VPC (10.0.0.0/16)
+├── Public Subnets (ALB, NAT Gateways)
+│   ├── 10.0.1.0/24 (ap-south-1a)
+│   ├── 10.0.2.0/24 (ap-south-1b)
+│   └── 10.0.3.0/24 (ap-south-1c)
+├── Private Subnets (EC2 instances)
+│   ├── 10.0.4.0/24 (ap-south-1a)
+│   ├── 10.0.5.0/24 (ap-south-1b)
+│   └── 10.0.6.0/24 (ap-south-1c)
+├── NAT Gateways (3x, one per AZ)
+├── Internet Gateway
+├── Security Groups (ALB + EC2)
+└── Network ACLs (Stateless firewall)
+
+TIER 5: DATA LAYER
+├── RDS Aurora MySQL
+│   ├── Multi-AZ failover
+│   ├── Automated backups (35 days)
+│   ├── Read replicas (for scaling reads)
+│   ├── Encryption at rest (KMS)
+│   └── Encryption in transit (SSL/TLS)
+├── ElastiCache Redis
+│   ├── Session store
+│   ├── Cache layer
+│   ├── Multi-AZ cluster
+│   └── Auto-failover enabled
+└── S3
+    ├── Static assets
+    ├── Versioning enabled
+    ├── Lifecycle policies
+    ├── Server-side encryption
+    └── CloudFront integration
+
+TIER 6: MONITORING & OBSERVABILITY
+├── CloudWatch
+│   ├── Metrics (CPU, Memory, Disk, Network)
+│   ├── Alarms (Auto-scaling triggers)
+│   ├── Dashboards (Real-time visualization)
+│   └── Logs (Centralized logging)
+├── X-Ray
+│   ├── Distributed tracing
+│   ├── Service map
+│   └── Performance analysis
+└── SNS
+    ├── Email alerts
+    └── Auto-scaling notifications
+
+TIER 7: SECURITY & COMPLIANCE
+├── IAM Roles (Least-privilege access)
+├── Secrets Manager (DB credentials, API keys)
+├── KMS (Key management)
+├── ACM Certificates (SSL/TLS)
+├── VPC Flow Logs (Network audit)
+└── AWS Config (Compliance tracking)
+
+TRAFFIC FLOW:
+User → Route 53 → CloudFront → WAF → ALB → Target Group → 
+ASG EC2 (1-20 instances) → ElastiCache (if cached) → RDS Aurora
+
+SCALING TRIGGERS:
+├── CPU > 70% → Scale UP (+2 instances)
+├── CPU < 30% → Scale DOWN (-1 instance)
+├── Request count > 10,000/min → Emergency scale to max
+└── Response time > 2s → Check cache & scale
+
+COST OPTIMIZATION:
+├── Reserved Instances (30-40% savings)
+├── Savings Plans (Flexible compute pricing)
+├── Spot Instances (Non-critical jobs, 70% savings)
+├── S3 Intelligent-Tiering
+├── CloudFront edge caching
+└── VPC Endpoints (Reduced data transfer)
+
+MONTHLY COST ESTIMATE: ₹1,400 - ₹1,900
